@@ -40,12 +40,12 @@ export HOME_DIR="~/Development/scratch"
 ### Cloning GitHub Repos
 
 All of the components have their own GitHub repo:
-- bgs-dm-product-srv: Ecosystem Platform Data product agent server
-- bgs-dm-search-srv: Ecosystem Platform search server
-- bgs-dm-registrar-srv: Ecosystem Platform registrar
-- bgs-dm-marketplace-ux: Ecosystem Platform marketplace user interface
-- bgs-dm-proxy-srv: Ecosystem Platform proxy server
-- bgs-dm-monitor-srv: Ecosystem Platform monitor services
+- osc-dm-product-srv: Ecosystem Platform Data product agent server
+- osc-dm-search-srv: Ecosystem Platform search server
+- osc-dm-registrar-srv: Ecosystem Platform registrar
+- osc-dm-marketplace-ux: Ecosystem Platform marketplace user interface
+- osc-dm-proxy-srv: Ecosystem Platform proxy server
+- osc-dm-monitor-srv: Ecosystem Platform monitor services
 
 Clone each of the components from their GitHub repo into your
 workspace top level directory (ie. HOME_DIR).
@@ -55,12 +55,12 @@ So, if you have cloned all of the components listed above,
 your directory structure will look liken the following:
 ~~~~
 $HOME_DIR
-    +- bgs-dm-product-srv
-    +- bgs-dm-search-srv
-    +- bgs-dm-registrar-srv
-    +- bgs-dm-marketplace-ux
-    +- bgs-dm-proxy-srv
-    +- bgs-dm-monitor-srv
+    +- osc-dm-product-srv
+    +- osc-dm-search-srv
+    +- osc-dm-registrar-srv
+    +- osc-dm-marketplace-ux
+    +- osc-dm-proxy-srv
+    +- osc-dm-monitor-srv
 ~~~~
 
 For the purposes of this document we call each component directory the
@@ -99,8 +99,8 @@ After running this script, you will be shown your current environment
 
 This script will setup environment variables for
 each project:
-- PROJECT: the name of the project (for example: bgs-dm-registrar-srv)
-- PROJECT_DIR: the component workspace directory (for example: $HOME_DIR/bgs-dm-registrar-srv)
+- PROJECT: the name of the project (for example: osc-dm-registrar-srv)
+- PROJECT_DIR: the component workspace directory (for example: $HOME_DIR/osc-dm-registrar-srv)
 
 #### Component: Setting up Python Virtual Environment
 
@@ -143,24 +143,25 @@ $PROJECT_DIR/bin/dockerize.sh
 ~~~~
 
 You should see a docker image for the component in your
-local docker environment:
+local docker environment (your list may vary depending on
+the images you currently have setup):
 ~~~~
 docker images
 
 REPOSITORY                                 TAG       IMAGE ID       CREATED        SIZE
-brodagroupsoftware/bgs-dm-search-srv       0.0.1     03c683fe574a   19 hours ago   1.43GB
-brodagroupsoftware/bgs-dm-search-srv       latest    03c683fe574a   19 hours ago   1.43GB
+brodagroupsoftware/osc-dm-search-srv       0.0.1     03c683fe574a   19 hours ago   1.43GB
+brodagroupsoftware/osc-dm-search-srv       latest    03c683fe574a   19 hours ago   1.43GB
 <none>                                     <none>    32c24016838e   19 hours ago   1.43GB
-brodagroupsoftware/bgs-dm-marketplace-ux   0.0.1     89f713cfad58   20 hours ago   1.95GB
-brodagroupsoftware/bgs-dm-marketplace-ux   latest    89f713cfad58   20 hours ago   1.95GB
-brodagroupsoftware/bgs-dm-product-srv      0.0.1     78b65b5a1aa3   21 hours ago   246MB
-brodagroupsoftware/bgs-dm-product-srv      latest    78b65b5a1aa3   21 hours ago   246MB
-brodagroupsoftware/bgs-dm-registrar-srv    0.0.1     8d26b2ccc496   23 hours ago   273MB
-brodagroupsoftware/bgs-dm-registrar-srv    latest    8d26b2ccc496   23 hours ago   273MB
-brodagroupsoftware/bgs-dm-proxy-srv        0.0.1     7cb6bb2e9d70   40 hours ago   272MB
-brodagroupsoftware/bgs-dm-proxy-srv        latest    7cb6bb2e9d70   40 hours ago   272MB
-brodagroupsoftware/bgs-dm-monitor-srv      0.0.1     09bd25968e77   3 days ago     286MB
-brodagroupsoftware/bgs-dm-monitor-srv      latest    09bd25968e77   3 days ago     286MB
+brodagroupsoftware/osc-dm-marketplace-ux   0.0.1     89f713cfad58   20 hours ago   1.95GB
+brodagroupsoftware/osc-dm-marketplace-ux   latest    89f713cfad58   20 hours ago   1.95GB
+brodagroupsoftware/osc-dm-product-srv      0.0.1     78b65b5a1aa3   21 hours ago   246MB
+brodagroupsoftware/osc-dm-product-srv      latest    78b65b5a1aa3   21 hours ago   246MB
+brodagroupsoftware/osc-dm-registrar-srv    0.0.1     8d26b2ccc496   23 hours ago   273MB
+brodagroupsoftware/osc-dm-registrar-srv    latest    8d26b2ccc496   23 hours ago   273MB
+brodagroupsoftware/osc-dm-proxy-srv        0.0.1     7cb6bb2e9d70   40 hours ago   272MB
+brodagroupsoftware/osc-dm-proxy-srv        latest    7cb6bb2e9d70   40 hours ago   272MB
+brodagroupsoftware/osc-dm-monitor-srv      0.0.1     09bd25968e77   3 days ago     286MB
+brodagroupsoftware/osc-dm-monitor-srv      latest    09bd25968e77   3 days ago     286MB
 <none>                                     <none>    1ab28a6515b6   4 days ago     1.95GB
 <none>                                     <none>    f08834c5d783   4 days ago     273MB
 quay.io/coreos/etcd                        v3.5.0    a7908fd5fb88   2 years ago    110MB
@@ -174,7 +175,7 @@ which exposes almost all capabilities from a terminal.
 We will use the CLI to get some of our compnents setup,
 so let's get it installed.
 
-First, clone the CLI [bgs-dm-mesh-cli](https://github.com/brodagroupsoftware/bgs-dm-mesh-cli).
+First, clone the CLI [osc-dm-mesh-cli](https://github.com/os-climate/osc-dm-mesh-cli).
 
 Next, setup your environment as follows (note that "source" is used)
 ~~~~

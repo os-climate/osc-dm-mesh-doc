@@ -52,15 +52,15 @@ The Ecosystem Platform can be started using the following
 commands which will pull all necessary Docker images (under
 the "brodagroupsoftware" username).
 
-First, clone the platform run-time components "bgs-dm-mesh-srv".
+First, clone the platform run-time components "osc-dm-mesh-srv".
 ~~~~
-git clone https://github.com/brodagroupsoftware/bgs-dm-mesh-srv.git
+git clone https://github.com/os-climate/osc-dm-mesh-srv.git
 ~~~~
 
 Next, change your current working directory to the
 created directory.
 ~~~~
-cd bgs-dm-mesh-srv
+cd osc-dm-mesh-srv
 ~~~~
 
 Now, setup your environment:
@@ -68,20 +68,25 @@ Now, setup your environment:
 source ./bin/environment.sh
 ~~~~
 
-This will setup several environment variables that are used by
-the platform:
+Note that we have already setup Docker images under the Docker username
+"brodagroupsoftware" which should allow you to pull images.  If you
+choose to build the system (see [Building the Platform](/docs/building-platform.md))
+then you will need to set your own Docker Hub username.
+
+After setting up your environment, you will see setup several environment
+variables that are used by the platform (something like the following).
 ~~~~
 USER_NAME:          ericbroda
 HOME_DIR:           /Users/ericbroda/Development/scratch
 DOCKERHUB_USERNAME: brodagroupsoftware
 DOCKERHUB_TOKEN:    ****
 ROOT_DIR:           /Users/ericbroda/Development/scratch
-PROJECT:            bgs-dm-mesh-srv
-PROJECT_DIR:        /Users/ericbroda/Development/scratch/bgs-dm-mesh-srv
+PROJECT:            osc-dm-mesh-srv
+PROJECT_DIR:        /Users/ericbroda/Development/scratch/osc-dm-mesh-srv
 PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION: python
 ~~~~
 
-Finally, start the platform:
+Finally, start the platform (make sure Docker is running):
 ~~~~
 $PROJECT_DIR/app/startd.sh
 ~~~~
@@ -92,10 +97,10 @@ see several Docker images running:
 docker ps
 
 CONTAINER ID   IMAGE                                             COMMAND                  CREATED         STATUS         PORTS                              NAMES
-42ab62c65dd7   brodagroupsoftware/bgs-dm-search-srv:latest       "python3 /app/server…"   4 seconds ago   Up 2 seconds   0.0.0.0:23000->8000/tcp            docker-bgs-dm-search-srv-1
-1716d89280c8   brodagroupsoftware/bgs-dm-registrar-srv:latest    "python3 /app/server…"   4 seconds ago   Up 2 seconds   0.0.0.0:21000->8000/tcp            docker-bgs-dm-registrar-srv-1
-df7f9487cd67   brodagroupsoftware/bgs-dm-proxy-srv:latest        "python3 /app/server…"   5 seconds ago   Up 2 seconds   0.0.0.0:20000->8000/tcp            docker-bgs-dm-proxy-srv-1
-06476365d0d5   brodagroupsoftware/bgs-dm-marketplace-ux:latest   "docker-entrypoint.s…"   5 seconds ago   Up 2 seconds   0.0.0.0:3000->3000/tcp             docker-bgs-dm-marketplace-ux-1
+42ab62c65dd7   brodagroupsoftware/osc-dm-search-srv:latest       "python3 /app/server…"   4 seconds ago   Up 2 seconds   0.0.0.0:23000->8000/tcp            docker-osc-dm-search-srv-1
+1716d89280c8   brodagroupsoftware/osc-dm-registrar-srv:latest    "python3 /app/server…"   4 seconds ago   Up 2 seconds   0.0.0.0:21000->8000/tcp            docker-osc-dm-registrar-srv-1
+df7f9487cd67   brodagroupsoftware/osc-dm-proxy-srv:latest        "python3 /app/server…"   5 seconds ago   Up 2 seconds   0.0.0.0:20000->8000/tcp            docker-osc-dm-proxy-srv-1
+06476365d0d5   brodagroupsoftware/osc-dm-marketplace-ux:latest   "docker-entrypoint.s…"   5 seconds ago   Up 2 seconds   0.0.0.0:3000->3000/tcp             docker-osc-dm-marketplace-ux-1
 a0448815f89b   quay.io/coreos/etcd:v3.5.0                        "/usr/local/bin/etcd"    5 seconds ago   Up 3 seconds   0.0.0.0:2379-2380->2379-2380/tcp   docker-etcd1-1
 5c34be81afa3   quay.io/coreos/etcd:v3.5.0                        "/usr/local/bin/etcd"    5 seconds ago   Up 3 seconds   2379-2380/tcp                      docker-etcd2-1
 3f6ad9e74091   quay.io/coreos/etcd:v3.5.0                        "/usr/local/bin/etcd"    5 seconds ago   Up 3 seconds   2379-2380/tcp                      docker-etcd3-1
@@ -105,17 +110,17 @@ Next, we will bootstrap a data product.
 
 ## Bootstrapping a Data Product
 
-First, clone the data product run-time components "bgs-dm-meshdp-srv"
+First, clone the data product run-time components "osc-dm-meshdp-srv"
 (note the name of the repo is close, but different from the previous
 repo).
 ~~~~
-git clone https://github.com/brodagroupsoftware/bgs-dm-meshdp-srv.git
+git clone https://github.com/os-climate/osc-dm-meshdp-srv.git
 ~~~~
 
 Next, change your current working directory to the recently
 created directory.
 ~~~~
-cd bgs-dm-meshdp-srv
+cd osc-dm-meshdp-srv
 ~~~~
 
 Now, setup your environment:
@@ -132,9 +137,9 @@ HOME_DIR:           /Users/ericbroda/Development/scratch
 DOCKERHUB_USERNAME: brodagroupsoftware
 DOCKERHUB_TOKEN:    ****
 ROOT_DIR:           /Users/ericbroda/Development/scratch
-PROJECT:            bgs-dm-meshdp-srv
-PROJECT_DIR:        /Users/ericbroda/Development/scratch/bgs-dm-meshdp-srv
-DATA_DIR:           /Users/ericbroda/Development/scratch/bgs-dm-samples-dat
+PROJECT:            osc-dm-meshdp-srv
+PROJECT_DIR:        /Users/ericbroda/Development/scratch/osc-dm-meshdp-srv
+DATA_DIR:           /Users/ericbroda/Development/scratch/osc-dm-samples-dat
 ~~~~
 
 Data products are define in directory defined by the "DATA_DIR"
@@ -156,16 +161,16 @@ a healthy system.  We will use the test cases (next section)
 to register information while also testing core system capabilities.
 
 At this point one additional Docker container will be
-running ("docker-bgs-dm-product-srv-1"):
+running ("docker-osc-dm-product-srv-1"):
 ~~~~
 docker ps
 
 CONTAINER ID   IMAGE                                             COMMAND                  CREATED              STATUS              PORTS                              NAMES
-4512a8463445   brodagroupsoftware/bgs-dm-product-srv:latest      "python3 /app/server…"   5 seconds ago        Up 3 seconds        0.0.0.0:24000->8000/tcp            docker-bgs-dm-product-srv-1
-42ab62c65dd7   brodagroupsoftware/bgs-dm-search-srv:latest       "python3 /app/server…"   About a minute ago   Up About a minute   0.0.0.0:23000->8000/tcp            docker-bgs-dm-search-srv-1
-1716d89280c8   brodagroupsoftware/bgs-dm-registrar-srv:latest    "python3 /app/server…"   About a minute ago   Up About a minute   0.0.0.0:21000->8000/tcp            docker-bgs-dm-registrar-srv-1
-df7f9487cd67   brodagroupsoftware/bgs-dm-proxy-srv:latest        "python3 /app/server…"   About a minute ago   Up About a minute   0.0.0.0:20000->8000/tcp            docker-bgs-dm-proxy-srv-1
-06476365d0d5   brodagroupsoftware/bgs-dm-marketplace-ux:latest   "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:3000->3000/tcp             docker-bgs-dm-marketplace-ux-1
+4512a8463445   brodagroupsoftware/osc-dm-product-srv:latest      "python3 /app/server…"   5 seconds ago        Up 3 seconds        0.0.0.0:24000->8000/tcp            docker-osc-dm-product-srv-1
+42ab62c65dd7   brodagroupsoftware/osc-dm-search-srv:latest       "python3 /app/server…"   About a minute ago   Up About a minute   0.0.0.0:23000->8000/tcp            docker-osc-dm-search-srv-1
+1716d89280c8   brodagroupsoftware/osc-dm-registrar-srv:latest    "python3 /app/server…"   About a minute ago   Up About a minute   0.0.0.0:21000->8000/tcp            docker-osc-dm-registrar-srv-1
+df7f9487cd67   brodagroupsoftware/osc-dm-proxy-srv:latest        "python3 /app/server…"   About a minute ago   Up About a minute   0.0.0.0:20000->8000/tcp            docker-osc-dm-proxy-srv-1
+06476365d0d5   brodagroupsoftware/osc-dm-marketplace-ux:latest   "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:3000->3000/tcp             docker-osc-dm-marketplace-ux-1
 a0448815f89b   quay.io/coreos/etcd:v3.5.0                        "/usr/local/bin/etcd"    About a minute ago   Up About a minute   0.0.0.0:2379-2380->2379-2380/tcp   docker-etcd1-1
 5c34be81afa3   quay.io/coreos/etcd:v3.5.0                        "/usr/local/bin/etcd"    About a minute ago   Up About a minute   2379-2380/tcp                      docker-etcd2-1
 3f6ad9e74091   quay.io/coreos/etcd:v3.5.0                        "/usr/local/bin/etcd"    About a minute ago   Up About a minute   2379-2380/tcp                      docker-etcd3-1
@@ -179,7 +184,7 @@ which exposes almost all capabilities from a terminal.
 We will use the CLI to get some of our compnents setup,
 so let's get it installed.
 
-First, clone the CLI [bgs-dm-mesh-cli](https://github.com/brodagroupsoftware/bgs-dm-mesh-cli).
+First, clone the CLI [osc-dm-mesh-cli](https://github.com/os-climate/osc-dm-mesh-cli).
 
 Next, setup your environment as follows (note that "source" is used)
 ~~~~
@@ -217,7 +222,7 @@ of the test cases to register users and products (you
 can run all test cases by following instructions
 later in this document).
 
-Go to your CLI ("bgs-dm-mesh-cli") directory (ensure
+Go to your CLI ("osc-dm-mesh-cli") directory (ensure
 your environment is setup) and then execute the following
 test case:
 ~~~~

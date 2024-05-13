@@ -1,4 +1,4 @@
-# bgs-dm-mesh-doc - OS-Climate Ecosystem Platform
+# osc-dm-mesh-doc - OS-Climate Ecosystem Platform
 
 Welcome to [OS Climate's](https://os-climate.org/) Ecosystem platform!
 
@@ -70,18 +70,18 @@ Enjoy!
 
 This repo is contains or references the consolidated documentation for our
 Ecosystem Platform components.  There are several components that are available:
-- bgs-dm-mesh-srv: Execution environment for Ecosystem Platform
-- bgs-dm-meshdp-srv: Execution environment for Ecosystem Platform Data Products
-- bgs-dm-mesh-cli: Command language interface to interact with Ecosystem Platform
+- osc-dm-mesh-srv: Execution environment for Ecosystem Platform
+- osc-dm-meshdp-srv: Execution environment for Ecosystem Platform Data Products
+- osc-dm-mesh-cli: Command language interface to interact with Ecosystem Platform
 components using a terminal window command line
-- bgs-dm-product-srv: Ecosystem Platform Data product agent server
-- bgs-dm-search-srv: Ecosystem Platform search server
-- bgs-dm-registrar-srv: Ecosystem Platform registrar
-- bgs-dm-marketplace-ux: Ecosystem Platform marketplace user interface
-- bgs-dm-proxy-srv: Ecosystem Platform proxy server
-- bgs-dm-monitor-srv: Ecosystem Platform monitor services
-- bgs-dm-samples-dat: Sample data, primarily for Ecosystem Platform data products
-- bgs-dm-utilities-lib: Library of common utilities used by Ecosystem Platform components
+- osc-dm-product-srv: Ecosystem Platform Data product agent server
+- osc-dm-search-srv: Ecosystem Platform search server
+- osc-dm-registrar-srv: Ecosystem Platform registrar
+- osc-dm-marketplace-ux: Ecosystem Platform marketplace user interface
+- osc-dm-proxy-srv: Ecosystem Platform proxy server
+- osc-dm-monitor-srv: Ecosystem Platform monitor services
+- osc-dm-samples-dat: Sample data, primarily for Ecosystem Platform data products
+- osc-dm-utilities-lib: Library of common utilities used by Ecosystem Platform components
 
 The Geospatial components are defined in:
 - bgs-geo-h3index-srv: Geospatial index server based upon H3 index schemes
@@ -89,23 +89,23 @@ The Geospatial components are defined in:
 Introductions for each component follows below as well as links to
 further documentation for each component.
 
-### bgs-dm-mesh-srv: Ecosystem Platform Execution Environment
+### osc-dm-mesh-srv: Ecosystem Platform Execution Environment
 
-[bgs-dm-mesh-srv](https://github.com/brodagroupsoftware/bgs-dm-mesh-srv)
+[osc-dm-mesh-srv](https://github.com/os-climate/osc-dm-mesh-srv)
 is the runtime environment for the Ecosystem Platform, implemented using Docker Compose,
 starts up several components, including the Registry UX, Registry
 Service, and various Data Products necessary for data management within
 the mesh.
 
-### bgs-dm-meshdp-srv: Ecosystem Platform Data Product Execution Environment
+### osc-dm-meshdp-srv: Ecosystem Platform Data Product Execution Environment
 
-[bgs-dm-meshdp-srv](https://github.com/brodagroupsoftware/bgs-dm-meshdp-srv)
+[osc-dm-meshdp-srv](https://github.com/os-climate/osc-dm-meshdp-srv)
 is the runtime environment for the Ecosystem Platform data products.  It
 is implemented using Docker Compose and starts up a Data Products.
 
-### bgs-dm-mesh-cli: Ecosystem Platform Command Language Interface
+### osc-dm-mesh-cli: Ecosystem Platform Command Language Interface
 
-[bgs-dm-mesh-cli](https://github.com/brodagroupsoftware/bgs-dm-mesh-cli)
+[osc-dm-mesh-cli](https://github.com/os-climate/osc-dm-mesh-cli)
 is the CLI for the Ecosystem Platform Registry provides a suite of capabilities that
 facilitate the management and interaction with a Ecosystem Platform environment.
 Here are the key functions and operations it supports:
@@ -138,9 +138,9 @@ These capabilities enable comprehensive management of data products and
 users within the Ecosystem Platform environment, streamlining the process of data
 sharing and consumption across diverse data domains and user roles.
 
-### bgs-dm-product-srv: Ecosystem Platform Data Product Agent (server)
+### osc-dm-product-srv: Ecosystem Platform Data Product Agent (server)
 
-[bgs-dm-product-srv](https://github.com/brodagroupsoftware/bgs-dm-product-srv)
+[osc-dm-product-srv](https://github.com/os-climate/osc-dm-product-srv)
 is a FastAPI server designed for managing data products within a data
 mesh environment offers a comprehensive suite of functionalities to
 streamline data operations across an interconnected network.
@@ -160,9 +160,9 @@ This server acts as a central hub for managing the lifecycle of data
 products, enhancing accessibility and operational efficiency within
 the Ecosystem Platform.
 
-### bgs-dm-search-srv: Ecosystem Platform Search Server
+### osc-dm-search-srv: Ecosystem Platform Search Server
 
-[bgs-dm-search-srv](https://github.com/brodagroupsoftware/bgs-dm-search-srv)
+[osc-dm-search-srv](https://github.com/os-climate/osc-dm-search-srv)
 is a FastAPI-based search service for a Ecosystem Platform infrastructure is designed
 to enhance data discoverability through advanced search functionalities.
 This service leverages a Vector database to facilitate natural language
@@ -176,9 +176,9 @@ retrieve content based on the contextual similarity of the search terms
 provided by users, making it an effective tool for accessing a wide range
 of Ecosystem Platform resources through intuitive and natural language queries.
 
-### bgs-dm-registrar-srv: Ecosystem Platform Registrar
+### osc-dm-registrar-srv: Ecosystem Platform Registrar
 
-[bgs-dm-registrar-srv](https://github.com/brodagroupsoftware/bgs-dm-registrar-srv)
+[osc-dm-registrar-srv](https://github.com/os-climate/osc-dm-registrar-srv)
 is a FastAPI service for a Ecosystem Platform environment is designed to
 handle the registration of, access to, and management of users,
 products, carts, and orders, centralizing crucial operational
@@ -191,9 +191,9 @@ This setup allows for efficient real-time operations across a
 distributed network, supporting a vast array of data transactions
 from user authentication to order processing.
 
-### bgs-dm-marketplace-ux: Ecosystem Platform Marketplace User Interface
+### osc-dm-marketplace-ux: Ecosystem Platform Marketplace User Interface
 
-[bgs-dm-marketplace-ux](https://github.com/brodagroupsoftware/bgs-dm-marketplace-ux)
+[osc-dm-marketplace-ux](https://github.com/os-climate/osc-dm-marketplace-ux)
 is a React/MUI-based user interface for the Ecosystem Platform environment
 presents a "marketplace" style platform that revolutionizes the
 way users access and interact with products, carts, and orders.
@@ -206,20 +206,20 @@ By adopting a familiar shopping metaphor, users can seamlessly "buy"
 or subscribe to data products, adding them to customizable carts
 and processing orders within the same ecosystem.
 
-### bgs-dm-proxy-srv: Ecosystem Platform Proxy Service
+### osc-dm-proxy-srv: Ecosystem Platform Proxy Service
 
-[bgs-dm-proxy-srv](https://github.com/brodagroupsoftware/bgs-dm-proxy-srv)
+[osc-dm-proxy-srv](https://github.com/os-climate/osc-dm-proxy-srv)
 is a FastAPI service that acts as a proxy/router for Ecosystem Platform service
 requests.
 
-### bgs-dm-monitor-srv: Ecosystem Platform Monitor Service
+### osc-dm-monitor-srv: Ecosystem Platform Monitor Service
 
-[bgs-dm-monitor-srv](https://github.com/brodagroupsoftware/bgs-dm-monitor-srv)
+[osc-dm-monitor-srv](https://github.com/os-climate/osc-dm-monitor-srv)
 is a FastAPI service that monitors components in the Ecosystem Platform.
 
-### bgs-dm-samples-dat: Sample Data for Ecosystem Platform
+### osc-dm-samples-dat: Sample Data for Ecosystem Platform
 
-[bgs-dm-samples-dat](https://github.com/brodagroupsoftware/bgs-dm-samples-dat)
+[osc-dm-samples-dat](https://github.com/os-climate/osc-dm-samples-dat)
 is a repository of sample data that populates the registrar and various data
 products within a Ecosystem Platform environment, integrating with
 both the marketplace UX and the Ecosystem Platform CLI.
@@ -237,11 +237,11 @@ to manipulation and management via the CLI, ensuring that users can
 effectively explore and utilize the full capabilities of the data
 mesh ecosystem.
 
-### bgs-dm-utilities-lib: Library of Common Utilities for Ecosystem Platform
+### osc-dm-utilities-lib: Library of Common Utilities for Ecosystem Platform
 
 NOT YET IMPLEMENTED (link not active)
 
-[bgs-dm-utilities-lib](https://github.com/brodagroupsoftware/bgs-dm-utilities-lib)
+[osc-dm-utilities-lib](https://github.com/os-climate/osc-dm-utilities-lib)
 is a library of common utilities is designed to streamline and
 enhance development processes by providing a comprehensive toolkit
 for HTTP requests, data access, and general utility functions.
