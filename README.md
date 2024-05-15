@@ -5,27 +5,20 @@ Welcome to [OS Climate's](https://os-climate.org/) Ecosystem platform!
 We are part of something called [Project-X](/docs/about-project-x.md), which is an
 OS-Climate project under the "Data Commons" work
 package.  Our objective is to make climate data easier to find, consume
-share, and trust.  And to do this we have two key streams of work:
-- Climate Data Bazaar, which is a catalog for climate data,
-that provides a "marketplace" user interface
-- Geospatial Index Server, which provides a uniform grid based upon
-Uber's H3 index design and toolkit.
+share, and trust.
 
 This repo is the starting point for understanding Project-X components,
-which are included under what we call our "Ecosystem Platform".  It
+which are included under what we call our
+[Ecosystem Platform](/docs/about-ecosystem-platform.md).  It
 contains several functional units:
 - Climate Data Bazaar: A catalog for climate data which makes
 climate data easy to find, consume, share, and trust
-- Geospatial Index services: Services that index for geospatial
-data (ie. for data that has a location, or latitude and longitude)
+- Geospatial Index services: Services that provide a uniform grid index
+for geospatial data (ie. for data that has a location, or latitude and longitude)
 - Several sample "data products" that make climate data accessible
 in the Bazaar
 - Several geospatial sample "data products" that illustrate
 use of location-based data
-
-This stream is built upon an
-[Ecosystem Platform](/docs/about-ecosystem-platform.md)
-foundation.
 
 The Ecosystem Platform was originally developed by Broda Group Software
 with key contributions by:
@@ -36,24 +29,20 @@ with key contributions by:
 If you just want to try out the Ecosystem Platform then the best place
 to start is in our [Getting Started](/docs/getting-started.md) tutorial.
 
-If you want to see where we are going with the platform, then check
-out our [Roadmap](/docs/roadmap.md) (note this is still under construction
-and will be available soon).
-
 If you are a developer and wish to modify the code and create
 your own Docker images (which we encourage, after all this is open
 source software), then follow the instructions in the
 [Building the Platform](/docs/building-platform.md) tutorial.
+
+If you want to see where we are going with the platform, then check
+out our [Roadmap](/docs/roadmap.md) (note this is still under construction
+and will be available soon).
 
 If you want to participate in setting the direction for the platform,
 or just want to talk to the developers, then we have the place for you.
 We get together regularly and all of the meeting details are on the
 [OS-Climate event calendar](https://west.exch092.serverdata.net/owa/calendar/f55f275b1e724cc49b5a52f50c30a11f@os-climate.org/022d1c0017744eebbf9f14f737493bd67046415453482209411/calendar.html)
 (look for "Project-X" on Thursdays at 9:30 EST).  We would love to talk with you!
-
-Otherwise, there is a bunch of stuff below that tells you about our
-platform, the problems it solves, and the architecture and components
-that make it all happen.
 
 If you have any feedback at all, then we have a few venues that
 let you interact with us:
@@ -64,12 +53,17 @@ respond quickly to any issues you find)
 on LinkedIn at: https://www.linkedin.com/in/ericbroda/
 and I would be happy to respond if you DM me.
 
+Otherwise, there is a bunch of stuff below that tells you about our
+platform, the problems it solves, and the architecture and components
+that make it all happen.
+
 Enjoy!
 
 ## Ecosystem Platform Components
 
 This repo is contains or references the consolidated documentation for our
-Ecosystem Platform components.  There are several components that are available:
+Ecosystem Platform components.  There are several components, each with
+their source code, that are available:
 - osc-dm-mesh-srv: Execution environment for Ecosystem Platform
 - osc-dm-meshdp-srv: Execution environment for Ecosystem Platform Data Products
 - osc-dm-mesh-cli: Command language interface to interact with Ecosystem Platform
@@ -97,11 +91,20 @@ starts up several components, including the Registry UX, Registry
 Service, and various Data Products necessary for data management within
 the mesh.
 
+A quick note on our Docker Compose execution environment. Every
+runnable component has a Docker image which means that we can support
+just about any on-premises or cloud-native environment.  But with a goal
+of geting our platform running in a few minutes
+on a local machines, we have offered a simple run-time environment based
+upon docker which is prevelent in most environments (and is easily downloaded)
+that can run easily and quickly on most laptops.
+
 ### osc-dm-meshdp-srv: Ecosystem Platform Data Product Execution Environment
 
 [osc-dm-meshdp-srv](https://github.com/os-climate/osc-dm-meshdp-srv)
 is the runtime environment for the Ecosystem Platform data products.  It
-is implemented using Docker Compose and starts up a Data Products.
+is implemented using Docker Compose (see above for reason for
+Docker Compose support) and starts up a Data Products.
 
 ### osc-dm-mesh-cli: Ecosystem Platform Command Language Interface
 
@@ -133,11 +136,6 @@ Here are the key functions and operations it supports:
    - Perform natural language searches within the Ecosystem Platform
    to discover products and artifacts based on specified criteria
 
-
-These capabilities enable comprehensive management of data products and
-users within the Ecosystem Platform environment, streamlining the process of data
-sharing and consumption across diverse data domains and user roles.
-
 ### osc-dm-product-srv: Ecosystem Platform Data Product Agent (server)
 
 [osc-dm-product-srv](https://github.com/os-climate/osc-dm-product-srv)
@@ -145,51 +143,34 @@ is a FastAPI server designed for managing data products within a data
 mesh environment offers a comprehensive suite of functionalities to
 streamline data operations across an interconnected network.
 
-This server enables users to register new data products, ensuring that
-all necessary metadata and configurations are systematically captured
-and cataloged. It also supports the discovery of data products, allowing
-users to efficiently search and access various data assets based on
-specific criteria. Moreover, the server provides tools for real-time
-observation of data product performance and utilization, facilitating
-proactive management and optimization.
-
-Additionally, it offers robust management capabilities, enabling
-administrators to update, modify, or remove data products as required,
-thereby maintaining the integrity and relevance of the Ecosystem Platform ecosystem.
-This server acts as a central hub for managing the lifecycle of data
-products, enhancing accessibility and operational efficiency within
-the Ecosystem Platform.
+This server enables users to register new data products and access
+metadata about data products. Soon it will offer observability, usage,
+and management capabilities, enabling
+administrators to modify system information or data products.
+In some respects, this server acts as a hub for managing the
+lifecycle of a data product.
 
 ### osc-dm-search-srv: Ecosystem Platform Search Server
 
 [osc-dm-search-srv](https://github.com/os-climate/osc-dm-search-srv)
-is a FastAPI-based search service for a Ecosystem Platform infrastructure is designed
-to enhance data discoverability through advanced search functionalities.
+is a FastAPI-based search service for our Ecosystem Platform.
 This service leverages a Vector database to facilitate natural language
 similarity searches, allowing users to find content that closely matches
 their queries in semantic meaning rather than just keyword alignment.
-
-It offers RESTful endpoints for adding content to the database, thus
-continually expanding the searchable dataset. Additionally, the search
-endpoint utilizes the vector database's capabilities to process and
-retrieve content based on the contextual similarity of the search terms
-provided by users, making it an effective tool for accessing a wide range
-of Ecosystem Platform resources through intuitive and natural language queries.
+It is designed to keep its content store updated with the most
+current and recent data product information.
 
 ### osc-dm-registrar-srv: Ecosystem Platform Registrar
 
 [osc-dm-registrar-srv](https://github.com/os-climate/osc-dm-registrar-srv)
-is a FastAPI service for a Ecosystem Platform environment is designed to
+is a FastAPI service for a Ecosystem Platform that is designed to
 handle the registration of, access to, and management of users,
-products, carts, and orders, centralizing crucial operational
-data in one robust platform.
+products, carts, and orders, consistently managing crucial operational
+data in one platform.
 
 Utilizing ETCD as its underlying data store, the service benefits
 from ETCD's strong consistency, high availability, and key-value
 storage capabilities, ensuring a scalable and reliable infrastructure.
-This setup allows for efficient real-time operations across a
-distributed network, supporting a vast array of data transactions
-from user authentication to order processing.
 
 ### osc-dm-marketplace-ux: Ecosystem Platform Marketplace User Interface
 
@@ -198,44 +179,52 @@ is a React/MUI-based user interface for the Ecosystem Platform environment
 presents a "marketplace" style platform that revolutionizes the
 way users access and interact with products, carts, and orders.
 
-This intuitive interface enables users to utilize natural language
-searches, effectively filtering through data products to find exactly
-what they need using conversational terms.
+By adopting a familiar shopping metaphor, users can "buy"
+data products, adding them to carts and processing orders.  Note
+nothing is actually bought, rather we use a "shopping cart" metaphor for data
+requests - this way the orders can be used to represent
+past, or presumably frequently used, data which can be easily
+accessed and consumed.
 
-By adopting a familiar shopping metaphor, users can seamlessly "buy"
-or subscribe to data products, adding them to customizable carts
-and processing orders within the same ecosystem.
+One quick comment on our UX styling.  Yes, it is minimal on purpose.
+And, as a typical React/MUI application, it is quite easy to customize
+the look and feel. So, we do expect to customize it a
+bit (logos, colours, icons etc) but actually want folks that
+download and use the kit to do much of the look-and-feel
+customization based upon their needs (but we do hope the share
+it with us at some point!).
 
 ### osc-dm-proxy-srv: Ecosystem Platform Proxy Service
 
 [osc-dm-proxy-srv](https://github.com/os-climate/osc-dm-proxy-srv)
 is a FastAPI service that acts as a proxy/router for Ecosystem Platform service
-requests.
+requests.  It is the primary interface point for external UX functionality
+and provides dynamic routing to a ecosytem of virtually unlimited
+number of data products.
 
 ### osc-dm-monitor-srv: Ecosystem Platform Monitor Service
 
 [osc-dm-monitor-srv](https://github.com/os-climate/osc-dm-monitor-srv)
 is a FastAPI service that monitors components in the Ecosystem Platform.
+It occasionally pings core services as well as active data
+products to gather health information and operational metrics. This
+data will soon be available on both our CLI and UX.
 
 ### osc-dm-samples-dat: Sample Data for Ecosystem Platform
 
 [osc-dm-samples-dat](https://github.com/os-climate/osc-dm-samples-dat)
 is a repository of sample data that populates the registrar and various data
 products within a Ecosystem Platform environment, integrating with
-both the marketplace UX and the Ecosystem Platform CLI.
+both the marketplace UX and the Ecosystem Platform CLI.  These
+samples are offered to allow users to see data product capabilities
+and understand data product concepts.  And, it provides the necessary
+data to support a simple and outstanding "Getting Started" experience.
 
 This repository includes a small subset of pre-configured datasets
-that exemplify the potential and versatility of the Ecosystem Platform system,
-allowing users to immediately engage with realistic data scenarios.
-
-Accessible through intuitive interfaces and command-line operations,
-the sample data underpins demonstrations, training, and development
-efforts, enhancing the user experience by providing rich, contextually
-relevant data examples. This integration facilitates smooth interactions
-across the platform, from data discovery and visualization in the UX
-to manipulation and management via the CLI, ensuring that users can
-effectively explore and utilize the full capabilities of the data
-mesh ecosystem.
+that demonstrate core data product capabilities, including:
+- RMI: utilities data
+- PUDL: details emissions data for utilities
+- And, soon, many others.
 
 ### osc-dm-utilities-lib: Library of Common Utilities for Ecosystem Platform
 
