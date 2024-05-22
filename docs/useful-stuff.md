@@ -97,7 +97,7 @@ git branch -d <branch-name>
 ## Create a new Branch
 
 ~~~~
-BRANCH_NAME="feature/issue-1-some-description"
+BRANCH_NAME="feature/issue-11-health-metrics-endpoints"
 git checkout -b "$BRANCH_NAME"
 ~~~~
 
